@@ -3,10 +3,7 @@
 # 없이 각 단어를 순서대로 출력하세요.
 word_dict = {}
 
-def wordCount(*list):
-    for item in list:
-        count = word_dict[item]
-        word_dict[item] = count + 1
+
 
 s = """We encourage everyone to contribute to Python. If you still have questions after reviewing the material
 in this guide, then the Python Mentors group is available to help guide new contributors through the process."""
@@ -16,5 +13,12 @@ s_list.sort(key=str)
 
 print(s)
 print(s_list)
-wordCount(s_list)
+
+for item in s:
+    count = word_dict.get(item, 0)
+    word_dict[item] = count + 1
+
+for words in word_dict:
+    print(words, word_dict[words])
+
 
